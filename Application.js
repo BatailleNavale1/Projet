@@ -1,22 +1,29 @@
-// Your code here
-// Your code here
 // Bataille Navale
 
-// Your code here
-// Your code here
-// Bataille Navale
 
+var scorej, scoreo;
 var xa,ya, bateau, boatx, boaty, h;
 var orient;
 var To, Tj;
+var Touchj, Toucho;
+scorej = scoreo = 0;
 Tj = To = Tableau(9, 9);
-
+Touchj = Toucho = Tableau(9, 9);
 
 for(i=0; i<9; i++){
   for(j=0; j<9; j++){
-    Tj[i][j] = To[i][j] = false;
+    Tj[i][j] = 0;
+    To[i][j] = 0;
   }
 }
+
+for(i=0; i<9; i++){
+  for(j=0; j<9; j++){
+    Touchj[i][j] = false;
+    Toucho[i][j] = false;
+  }
+}
+
     
     
 
@@ -29,23 +36,28 @@ function botAleatoire(){
   var xa=0,ya=0;
   var x,y;
   x=(Hasard(8)+1)*75;  
-  y=(Hasard(8)+1)*50;   	
-   if(75<x && x<600 && 50<y && y<400){  
-        xa = x/75;        
-        ya = y/50;
-        Ecrire(xa);
-  		Ecrire(ya);        
-        Texte(75*xa,ya*50+20, Tj[xa][ya], 'black');
-        if(Tj[xa][ya] == 1){
+  y=(Hasard(8)+1)*50;
+  xa = x/75;        
+  ya = y/50;
+  
+  while(75>=x || x>=600 || 50>=y || y>=400 || Touchj[xa][ya]){
+    x=(Hasard(8)+1)*75;  
+    y=(Hasard(8)+1)*50;
+    xa = x/75;        
+    ya = y/50;
+  }
+  Ecrire(xa);
+  Ecrire(ya);        
+  Texte(75*xa,ya*50+20, Tj[xa-1][ya-1], 'black');
+  if(Tj[xa-1][ya-1] == 1){
     Ecrire('Touché!!!');
-  } 
+    scoreo ++;
+  }
   else{
     Ecrire('Raté!!!');
   }
-       }
-      
-  
-  }
+  Touchj[xa-1][ya-1] = true;
+}  
             
         
 
@@ -54,25 +66,30 @@ function MouseClick(x, y){
   var xa=0,ya=0;
   for(i=1; i<10; i++){
     for(j=1; j<10; j++){
-      if(680+i*75<x && x<765+i*75 && j*50<y && y<j*50+50){
-        xa = i-1;
-        ya = j-1;
+      xa = i-1;
+      ya = j-1;
+      if(680+i*75<x && x<765+i*75 && j*50<y && y<j*50+50 && !Toucho[xa-1][ya-1]){
         Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'black');
         
         if(To[xa-1][ya-1] == 1){
-    Ecrire('Touché!!!');
-  } 
-  else{
-    Ecrire('Raté!!!');
-  }
-        
+          Ecrire('Touché!!!');
+          scorej++;
+        } 
+        else{
+          Ecrire('Raté!!!');
+        }
+        Toucho[xa-1][ya-1] = true;
+        botAleatoire();
       }
     }
    
-  } 
-   botAleatoire(); 
-  
-  
+  }
+  if(scoreo >= 14){
+    Texte(500, 500, "Vous avez perdu", 'black');
+  }
+  else if(scorej >= 14){
+    Texte(500, 500, "Vous avez gagné", 'black');
+  }
  
 }
 
@@ -115,6 +132,9 @@ for(i=1; i<10; i++){
     Rectangle(i*75+680, j*50, 75, 50, 'black');
   }
 }
+
+
+
 
 
 
@@ -219,6 +239,8 @@ while(bateau<5){
   }
 }
 }
+
+
 function PlacerBateauJ(){
 bateau = 0;						
 while(bateau<5){
@@ -318,35 +340,8 @@ while(bateau<5){
   }
 }
 }
-/*for(i = 0; i<8; i++){
-  for(j = 0; j<8; j++){
-    Tj[i][j] = 0;
-  }
-}*/
-  
 
 
-
-
-
-/*for(i = 0; i<8; i++){
-  for(j = 0; j<8; j++){
-    if(To[i][j] != 1){
-      To[i][j] = 0;
-    }
-  }
-}*/
-
-/*xa = Saisie('Coordonnée X de la case à frapper')-1;
-ya = Saisie('Coordonnée Y de la case à frapper')-1;
-
-while(xa > 8){
-  xa = Saisie('Veulliez saisir une valeur X comprise entre 1 et 8');
-}
-
-while(ya > 8){
-  ya = Saisie('Veulliez saisir une valeur Y comprise entre 1 et 8');
-}*/
 
 PlacerBateauIA();
 PlacerBateauJ();
