@@ -141,205 +141,143 @@ for(i=1; i<10; i++){
 //placement des bateaux
 
 function PlacerBateauIA(){
-bateau = 0;						
-while(bateau<5){
-  boatx = Hasard(4)+2;
-  boaty = Hasard(4)+2;
-  if(To[boatx][boaty] != 1){
-    To[boatx][boaty] = 1;
-    if(To[boatx-1][boaty]==1 && boatx>=1 || boatx>=2 && To[boatx-2][boaty]==1){
-        orient = Hasard(3);
-      }
-    if(To[boatx][boaty-1]==1 || To[boatx][boaty-2]==1){
-      orient = Hasard(3)+1;
-    }
-    if(To[boatx+1][boaty]==1 && boatx<=1 || boatx<=2 && To[boatx+2][boaty]==1){
-      while(orient == 1){
-        orient= Hasard(4);
-      }
-    }
-    if(To[boatx][boaty+1]==1 && boaty<=1 || boaty<=2 && To[boatx][boaty+2]==1){
-      while(orient == 2){
-        orient = Hasard(4);
-      }
-    }
-    else{
-      orient = Hasard(4);
-    }
-    
-    if(bateau>3){
-      if(boatx>=3 && To[boatx-3][boaty]==1){
-        orient = Hasard(3);
-      }
-      if(boaty>=3 && To[boatx][boaty-3]==1){
-        orient = Hasard(3)+1;
-      }
-      if(boatx<=3 && To[boatx+3][boaty]==1){
-        while(orient == 1){
-          orient= Hasard(4);
-        }
-      }
-      if(boaty<=3 && To[boatx][boaty+3]==1){
-        while(orient == 2){
-          orient = Hasard(4);
-        }
-      }
-      else{
-        orient = Hasard(4);
-      }
-    }
-    
-    
-    
-    
-    if(orient == 0){
-      To[boatx][boaty-1]=1;
-    }
-    else if(orient == 1){
-      To[boatx+1][boaty]=1;
-    }
-    else if(orient == 2){
-      To[boatx][boaty+1]=1;
-    }
-    else{
-      To[boatx-1][boaty]=1;
-    }
-    if(bateau>1){
+  var x,y;
+  for(i=0;i<5; i++){
+    orient = Hasard(2);
+    if(i <2){
       if(orient == 0){
-        To[boatx][boaty-2]=1;
-      }
-      else if(orient == 1){
-        To[boatx+2][boaty]=1;
-      }
-      else if(orient == 2){
-        To[boatx][boaty+2]=1;
+        do{
+          x = Hasard(7);
+          y = Hasard(8);
+        }while(To[x][y] == 1 || To[x+1][y] == 1);
+        To[x][y] = 1;
+        To[x+1][y] = 1;
       }
       else{
-        To[boatx-2][boaty]=1;
-      }
-      
-      if(bateau>3){
-        if(orient == 0){
-          To[boatx][boaty-3]=1;
-        }
-        else if(orient == 1){
-          To[boatx+3][boaty]=1;
-        }
-        else if(orient == 2){
-          To[boatx][boaty+3]=1;
-        }
-        else{
-          To[boatx-3][boaty]=1;
-        }
+        do{
+          x = Hasard(8);
+          y = Hasard(7);
+        }while(To[x][y] == 1 || To[x][y+1] == 1);
+        To[x][y] = 1;
+        To[x][y+1] = 1;
       }
     }
     
+    else if(i< 4){
+      if(orient == 0){
+        do{
+          x = Hasard(6);
+          y = Hasard(8);
+        }while(To[x][y] == 1 || To[x+1][y] == 1 || To[x+2][y] == 1);
+        To[x][y] = 1;
+        To[x+1][y] = 1;
+        To[x+2][y] = 1;
+      }
+      else{
+        do{
+          x = Hasard(8);
+          y = Hasard(6);
+        }while(To[x][y] == 1 || To[x][y+1] == 1 || To[x][y+2] == 1);
+        To[x][y] = 1;
+        To[x][y+1] = 1;
+        To[x][y+2] = 1;
+      }
+    }
     
-    bateau ++;
+    else{
+      if(orient == 0){
+        do{
+          x = Hasard(5);
+          y = Hasard(8);
+        }while(To[x][y] == 1 || To[x+1][y] == 1 || To[x+2][y] == 1 || To[x+3][y] == 1);
+        To[x][y] = 1;
+        To[x+1][y] = 1;
+        To[x+2][y] = 1;
+        To[x+3][y] = 1;
+      }
+      else{
+        do{
+          x = Hasard(8);
+          y = Hasard(5);
+        }while(To[x][y] == 1 || To[x][y+1] == 1 || To[x][y+2] == 1 || To[x][y+3] == 1);
+        To[x][y] = 1;
+        To[x][y+1] = 1;
+        To[x][y+2] = 1;
+        To[x][y+3] = 1;
+      }
+    }
   }
-}
 }
 
 
 function PlacerBateauJ(){
-bateau = 0;						
-while(bateau<5){
-  boatx = Hasard(4)+2;
-  boaty = Hasard(4)+2;
-  if(Tj[boatx][boaty] != 1){
-    Tj[boatx][boaty] = 1;
-    if(Tj[boatx-1][boaty]==1 && boatx>=1 || boatx>=2 && Tj[boatx-2][boaty]==1){
-        orient = Hasard(3);
-      }
-    if(Tj[boatx][boaty-1]==1 || Tj[boatx][boaty-2]==1){
-      orient = Hasard(3)+1;
-    }
-    if(Tj[boatx+1][boaty]==1 && boatx<=1 || boatx<=2 && Tj[boatx+2][boaty]==1){
-      while(orient == 1){
-        orient= Hasard(4);
-      }
-    }
-    if(Tj[boatx][boaty+1]==1 && boaty<=1 || boaty<=2 && Tj[boatx][boaty+2]==1){
-      while(orient == 2){
-        orient = Hasard(4);
-      }
-    }
-    else{
-      orient = Hasard(4);
-    }
-    
-    if(bateau>3){
-      if(boatx>=3 && Tj[boatx-3][boaty]==1){
-        orient = Hasard(3);
-      }
-      if(boaty>=3 && Tj[boatx][boaty-3]==1){
-        orient = Hasard(3)+1;
-      }
-      if(boatx<=3 && Tj[boatx+3][boaty]==1){
-        while(orient == 1){
-          orient= Hasard(4);
-        }
-      }
-      if(boaty<=3 && Tj[boatx][boaty+3]==1){
-        while(orient == 2){
-          orient = Hasard(4);
-        }
-      }
-      else{
-        orient = Hasard(4);
-      }
-    }
-    
-    
-    
-    
-    if(orient == 0){
-      Tj[boatx][boaty-1]=1;
-    }
-    else if(orient == 1){
-      Tj[boatx+1][boaty]=1;
-    }
-    else if(orient == 2){
-      Tj[boatx][boaty+1]=1;
-    }
-    else{
-      Tj[boatx-1][boaty]=1;
-    }
-    if(bateau>1){
+var x,y;
+  for(i=0;i<5; i++){
+    orient = Hasard(2);
+    if(i <2){
       if(orient == 0){
-        Tj[boatx][boaty-2]=1;
-      }
-      else if(orient == 1){
-        Tj[boatx+2][boaty]=1;
-      }
-      else if(orient == 2){
-        Tj[boatx][boaty+2]=1;
+        do{
+          x = Hasard(7);
+          y = Hasard(8);
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1);
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
       }
       else{
-        Tj[boatx-2][boaty]=1;
-      }
-      
-      if(bateau>3){
-        if(orient == 0){
-          Tj[boatx][boaty-3]=1;
-        }
-        else if(orient == 1){
-          Tj[boatx+3][boaty]=1;
-        }
-        else if(orient == 2){
-          Tj[boatx][boaty+3]=1;
-        }
-        else{
-          Tj[boatx-3][boaty]=1;
-        }
+        do{
+          x = Hasard(8);
+          y = Hasard(7);
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1);
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
       }
     }
     
+    else if(i< 4){
+      if(orient == 0){
+        do{
+          x = Hasard(6);
+          y = Hasard(8);
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1);
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
+        Tj[x+2][y] = 1;
+      }
+      else{
+        do{
+          x = Hasard(8);
+          y = Hasard(6);
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1);
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
+        Tj[x][y+2] = 1;
+      }
+    }
     
-    bateau ++;
+    else{
+      if(orient == 0){
+        do{
+          x = Hasard(5);
+          y = Hasard(8);
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || Tj[x+3][y] == 1);
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
+        Tj[x+2][y] = 1;
+        Tj[x+3][y] = 1;
+      }
+      else{
+        do{
+          x = Hasard(8);
+          y = Hasard(5);
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || Tj[x][y+3] == 1);
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
+        Tj[x][y+2] = 1;
+        Tj[x][y+3] = 1;
+      }
+    }
   }
 }
-}//test
 
 
 PlacerBateauIA();
@@ -348,4 +286,3 @@ Ecrire('Tableau adverse: ');
 AfficherTableau(To);
 Ecrire('Votre tableau: ');
 AfficherTableau(Tj);
-//test
