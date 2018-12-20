@@ -74,7 +74,7 @@ function MouseClick(x, y){
       if((680+i*75<x && x<765+i*75) && (j*50<y && y<j*50+50) && !Toucho[xa-1][ya-1]){
          if(680+((i+1)*75)<x && x<765+((i)*75)){
            x=x-10;            
-         }          
+         }         
        	 
        
                  
@@ -82,7 +82,7 @@ function MouseClick(x, y){
         
         if(To[xa-1][ya-1] == 1){
           Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'red');
-          Texte(550,750,'Touché!!!','red');
+          Texte(666,750,'Touché!!!','red');
           scorej++;
         } 
         else{
@@ -240,16 +240,16 @@ var x,y;
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 6):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
         }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || x<0 || x>6 || y<0 || y>7);
-        Tj[x][y] = X;
-        Tj[x+1][y] = X;
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
       }
       else{
         do{
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 6):");
         }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || x<0 || x>7 || y<0 || y>6);
-        Tj[x][y] = X;
-        Tj[x][y+1] = X;
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
       }
     }
     
@@ -259,18 +259,18 @@ var x,y;
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 5):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
         }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || x<0 || x>5 || y<0 || y>7);
-        Tj[x][y] = X;
-        Tj[x+1][y] = X;
-        Tj[x+2][y] = X;
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
+        Tj[x+2][y] = 1;
       }
       else{
         do{
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 5):");
         }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || x<0 || x>7 || y<0 || y>5);
-        Tj[x][y] = X;
-        Tj[x][y+1] = X;
-        Tj[x][y+2] = X;
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
+        Tj[x][y+2] = 1;
       }
     }
     
@@ -280,20 +280,20 @@ var x,y;
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 4):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
         }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || Tj[x+3][y] == 1 || x<0 || x>4 || y<0 || y>7);
-        Tj[x][y] = X;
-        Tj[x+1][y] = X;
-        Tj[x+2][y] = X;
-        Tj[x+3][y] = X;
+        Tj[x][y] = 1;
+        Tj[x+1][y] = 1;
+        Tj[x+2][y] = 1;
+        Tj[x+3][y] = 1;
       }
       else{
         do{
           x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
           y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 4):");
         }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || Tj[x][y+3] == 1 || x<0 || x>4 || y<0 || y>7);
-        Tj[x][y] = X;
-        Tj[x][y+1] = X;
-        Tj[x][y+2] = X;
-        Tj[x][y+3] = X;
+        Tj[x][y] = 1;
+        Tj[x][y+1] = 1;
+        Tj[x][y+2] = 1;
+        Tj[x][y+3] = 1;
       }
     }
   }
@@ -305,4 +305,6 @@ PlacerBateauJ();
 Ecrire('Tableau adverse: ');
 AfficherTableau(To);
 Ecrire('Votre tableau: ');
+AfficherTableau(Tj);
+
 AfficherTableau(Tj);
