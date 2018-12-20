@@ -7,18 +7,20 @@ var orient;
 var To, Tj;
 var Touchj, Toucho;
 scorej = scoreo = 0;
-Tj = To = Tableau(9, 9);
-Touchj = Toucho = Tableau(9, 9);
+Tj =Tableau(8, 8);
+To = Tableau(8, 8);
+Touchj = Tableau(8, 8);
+Toucho = Tableau(8, 8);
 
-for(i=0; i<9; i++){
-  for(j=0; j<9; j++){
+for(i=0; i<8; i++){
+  for(j=0; j<8; j++){
     Tj[i][j] = 0;
     To[i][j] = 0;
   }
 }
 
-for(i=0; i<9; i++){
-  for(j=0; j<9; j++){
+for(i=0; i<8; i++){
+  for(j=0; j<8; j++){
     Touchj[i][j] = false;
     Toucho[i][j] = false;
   }
