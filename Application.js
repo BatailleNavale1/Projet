@@ -26,7 +26,7 @@ for(i=0; i<8; i++){
 
 function Keypressed(k) {
   if (k == Caractere_vers_Ascii('h') ||k == Caractere_vers_Ascii('H')) {
-    alert("Pour gagner il suffit de couler les bateaux ennemis!!");   
+    alert("Bienvenue dans l'aide. Pour gagner il suffit de couler les bateaux ennemis!!\n""Si on vous redemande de saisir des coordonnées pour le bateaux c'est que celle-ci sont déja occupées ");   
   } 
 } 
 
@@ -108,14 +108,6 @@ function MouseClick(x, y){
   }
  
 }
-
-
-
-
-
-
-
-
 
 //Tableaux dans l'interface graphique
 function CreerInterface(){
@@ -634,5 +626,4 @@ var x,y;
 CreerInterface();
 PlacerBateauIA();
 PlacerBateauJ();
-AfficherTableau(To);
 AfficherTableau(Tj);
