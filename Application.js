@@ -64,8 +64,8 @@ function MouseClick(x, y){
   var xa=0,ya=0;
   for(i=1; i<10; i++){
     for(j=1; j<10; j++){
-      xa = i;
-      ya = j; 
+      xa = i-1;
+      ya = j-1; 
       Ecrire("xa:"+xa);
   		Ecrire("ya:"+ya); 
   		Ecrire("x :"+x);
