@@ -44,15 +44,17 @@ function botAleatoire(){
   Ecrire(ya);        
 
   if(Tj[xa-1][ya-1] == 1){
-    Texte(75*(xa+1)+40,(ya+1)*50+20, 'X', 'red');
-    Rectangle(100,550,'white');
-    Texte(100,550,'Touché!!!','red');    
+    Texte(75*(xa+1)+40,(ya+1)*50+20, 'X', 'red');   
+    RectanglePlein(100,540,50,50,'white'); 
+    Texte(100,550,'Touché!!!','red'); 
+   
     scoreo ++;
   }
   else{
-    Texte(75*(xa+1)+40,(ya+1)*50+20, Tj[xa-1][ya-1], 'blue');
-    Rectangle(100,550,'white');
+    Texte(75*(xa+1)+40,(ya+1)*50+20, Tj[xa-1][ya-1], 'blue');  
+    RectanglePlein(100,540,50,50,'white'); 
     Texte(100,550,'Raté!!!','blue');
+    
   }
   Touchj[xa-1][ya-1] = true;
 }  
@@ -79,18 +81,17 @@ function MouseClick(x, y){
          }          
         
        if(To[xa-1][ya-1] == 1){
-          Texte(710+75*i,j*50+20, 'X', 'red'); 
-          
-          Texte(800,550,'Touché!!!','red');
-        
-        
+          Texte(710+75*i,j*50+20, 'X', 'red');
+          RectanglePlein(800,540,50,50,'white'); 
+          Texte(800,550,'Touché!!!','red');          
+                   
           scorej++;
         } 
         else{
          Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'blue');  
-         
-         Texte(800,550,'Raté!!!','blue');
-          
+         RectanglePlein(800,540,50,50,'white'); 
+         Texte(800,550,'Raté!!!','blue');         
+                 
       
         }
         Toucho[xa-1][ya-1] = true;
@@ -305,4 +306,3 @@ Ecrire('Tableau adverse: ');
 AfficherTableau(To);
 Ecrire('Votre tableau: ');
 AfficherTableau(Tj);
-
