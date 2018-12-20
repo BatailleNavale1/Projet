@@ -66,23 +66,21 @@ function MouseClick(x, y){
     for(j=1; j<10; j++){
       xa = i-1;
       ya = j-1; 
-      Ecrire("xa:"+xa);
-  		Ecrire("ya:"+ya); 
-  		Ecrire("x :"+x);
- 		Ecrire("y :"+y);   
+        
        if(((x>750 && x<1450) && (y>50 && y<100)) || ((y>50 && y<500) && (x>750 && x<825))){
           alert("ceci n'est pas une case");
          return;
           
         }else{
  	       
-      if(682+i*75<x && x<765+i*75 && j*50<y && y<j*50+50 && !Toucho[xa-1][ya-1]){
-        Ecrire("xa:"+xa);
-  		Ecrire("ya:"+ya); 
-  		Ecrire("x :"+x);
- 		Ecrire("y :"+y);       
-          
-       
+      if((680+i*75<x && x<765+i*75) && (j*50<y && y<j*50+50) && !Toucho[xa-1][ya-1]){
+         if(680+((i+1)*75)<x && x<765+((i)*75)){
+           x=x-10;
+           Ecrire(x);
+           Ecrire(i);
+ 
+         }          
+       	 
           Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'black');
           
         
