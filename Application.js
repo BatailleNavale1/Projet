@@ -230,21 +230,24 @@ function PlacerBateauIA(){
 function PlacerBateauJ(){
 var x,y;
   for(i=0;i<5; i++){
-    orient = Hasard(2);
+    do{
+      orient = SaisieEntier("Placement du bateau n°"+ enChaine(i+1) +". \nSaisir '0' pour placer un bateau à l'horizontale\nSaisir '1' pour placer un bateau à la verticale");
+    }while(orient != 0 && orient != 1);
+    
     if(i <2){
       if(orient == 0){
         do{
-          x = Hasard(7);
-          y = Hasard(8);
-        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 6):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || x<0 || x>6 || y<0 || y>7);
         Tj[x][y] = 1;
         Tj[x+1][y] = 1;
       }
       else{
         do{
-          x = Hasard(8);
-          y = Hasard(7);
-        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 2 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 6):");
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || x<0 || x>7 || y<0 || y>6);
         Tj[x][y] = 1;
         Tj[x][y+1] = 1;
       }
@@ -253,18 +256,18 @@ var x,y;
     else if(i< 4){
       if(orient == 0){
         do{
-          x = Hasard(6);
-          y = Hasard(8);
-        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 5):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || x<0 || x>5 || y<0 || y>7);
         Tj[x][y] = 1;
         Tj[x+1][y] = 1;
         Tj[x+2][y] = 1;
       }
       else{
         do{
-          x = Hasard(8);
-          y = Hasard(6);
-        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 3 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 5):");
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || x<0 || x>7 || y<0 || y>5);
         Tj[x][y] = 1;
         Tj[x][y+1] = 1;
         Tj[x][y+2] = 1;
@@ -274,9 +277,9 @@ var x,y;
     else{
       if(orient == 0){
         do{
-          x = Hasard(5);
-          y = Hasard(8);
-        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || Tj[x+3][y] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi l'horizontale.\n Coordonnées X du bateau (entre 0 et 4):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi l'horizontale.\n Coordonnées Y du bateau (entre 0 et 7):");
+        }while(Tj[x][y] == 1 || Tj[x+1][y] == 1 || Tj[x+2][y] == 1 || Tj[x+3][y] == 1 || x<0 || x>4 || y<0 || y>7);
         Tj[x][y] = 1;
         Tj[x+1][y] = 1;
         Tj[x+2][y] = 1;
@@ -284,9 +287,9 @@ var x,y;
       }
       else{
         do{
-          x = Hasard(8);
-          y = Hasard(5);
-        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || Tj[x][y+3] == 1);
+          x = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi la verticale.\n Coordonnées X du bateau (entre 0 et 7):");
+          y = SaisieEntier("Placement du bateau n°" + enChaine(i+1) + "(à 4 cases).\n Vous avez choisi la verticale.\n Coordonnées Y du bateau (entre 0 et 4):");
+        }while(Tj[x][y] == 1 || Tj[x][y+1] == 1 || Tj[x][y+2] == 1 || Tj[x][y+3] == 1 || x<0 || x>4 || y<0 || y>7);
         Tj[x][y] = 1;
         Tj[x][y+1] = 1;
         Tj[x][y+2] = 1;
