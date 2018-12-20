@@ -37,20 +37,16 @@ Texte(755, 40, 'Tableau adverse', 'black');
 function botAleatoire(){  
   var xa=0,ya=0;
   var x,y;
-  x=(Hasard(8)+1)*75;  
-  y=(Hasard(8)+1)*50;
-  xa = x/75;        
-  ya = y/50;
-  
-  while(75>=x || x>=600 || 50>=y || y>=400 || Touchj[xa][ya]){
+  do{
     x=(Hasard(8)+1)*75;  
     y=(Hasard(8)+1)*50;
     xa = x/75;        
     ya = y/50;
-  }
+  }while(Touchj[xa-1][ya-1]);
+  
   Ecrire(xa);
   Ecrire(ya);        
-  Texte(75*xa,ya*50+20, Tj[xa-1][ya-1], 'black');
+  Texte(75*(xa+1)+40,(ya+1)*50+20, Tj[xa-1][ya-1], 'black');
   if(Tj[xa-1][ya-1] == 1){
     Ecrire('Touché!!!');
     scoreo ++;
@@ -70,7 +66,7 @@ function MouseClick(x, y){
     for(j=1; j<10; j++){
       xa = i-1;
       ya = j-1;
-      if(680+i*75<x && x<765+i*75 && j*50<y && y<j*50+50 && !Toucho[xa-1][ya-1]){
+      if(682+i*75<x && x<765+i*75 && j*50<y && y<j*50+50 && !Toucho[xa-1][ya-1]){
         Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'black');
         
         if(To[xa-1][ya-1] == 1){
