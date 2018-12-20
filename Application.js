@@ -44,13 +44,15 @@ function botAleatoire(){
   Ecrire(ya);        
 
   if(Tj[xa-1][ya-1] == 1){
-    Texte(75*(xa+1)+40,(ya+1)*50+20, Tj[xa-1][ya-1], 'red');
-    Texte(50,750,'Touché!!!','red');    
+    Texte(75*(xa+1)+40,(ya+1)*50+20, 'X', 'red');
+    Rectangle(100,550,'white');
+    Texte(100,550,'Touché!!!','red');    
     scoreo ++;
   }
   else{
     Texte(75*(xa+1)+40,(ya+1)*50+20, Tj[xa-1][ya-1], 'blue');
-    Texte(50,750,'Raté!!!','blue');
+    Rectangle(100,550,'white');
+    Texte(100,550,'Raté!!!','blue');
   }
   Touchj[xa-1][ya-1] = true;
 }  
@@ -74,37 +76,34 @@ function MouseClick(x, y){
       if((680+i*75<x && x<765+i*75) && (j*50<y && y<j*50+50) && !Toucho[xa-1][ya-1]){
          if(680+((i+1)*75)<x && x<765+((i)*75)){
            x=x-10;            
-         }         
-       	 
-       
-                 
-             
+         }          
         
-        if(To[xa-1][ya-1] == 1){
-          Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'red');
-          Texte(666,750,'Touché!!!','red');
+       if(To[xa-1][ya-1] == 1){
+          Texte(710+75*i,j*50+20, 'X', 'red'); 
+          
+          Texte(800,550,'Touché!!!','red');
+        
+        
           scorej++;
         } 
         else{
-         Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'blue');
-         Texte(550,750,'Raté!!!','blue');
+         Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'blue');  
+         
+         Texte(800,550,'Raté!!!','blue');
+          
+      
         }
         Toucho[xa-1][ya-1] = true;
         botAleatoire();
       }
       }
-    }
-      
-     
-     
-    
-   
+    }          
   }
   if(scoreo >= 14){
-    Texte(600, 750, "Dommage! Vous avez perdu", 'black');
+    Texte(750, 600, "Dommage! Vous avez perdu!!", 'blue');
   }
   else if(scorej >= 14){
-    Texte(600, 750, "Bravo,Vous avez gagné", 'black');
+    Texte(750, 600, "Bravo,Vous avez gagné!!", 'red');
   }
  
 }
@@ -307,4 +306,3 @@ AfficherTableau(To);
 Ecrire('Votre tableau: ');
 AfficherTableau(Tj);
 
-AfficherTableau(Tj);
