@@ -339,8 +339,7 @@ while(bateau<5){
     bateau ++;
   }
 }
-}
-
+}//test
 
 
 PlacerBateauIA();
