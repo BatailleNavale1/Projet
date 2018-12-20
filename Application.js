@@ -1,4 +1,4 @@
-// Bataille Navale
+﻿// Bataille Navale
 
 
 var scorej, scoreo;
@@ -349,3 +349,4 @@ Ecrire('Tableau adverse: ');
 AfficherTableau(To);
 Ecrire('Votre tableau: ');
 AfficherTableau(Tj);
+//test
