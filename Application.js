@@ -1,5 +1,7 @@
 ﻿//Bataille Navale
 
+//Bataille Navale
+
 var scorej, scoreo;
 var xa,ya, bateau, boatx, boaty, h;
 var orient;
@@ -24,14 +26,14 @@ for(i=0; i<8; i++){
     Toucho[i][j] = false;
   }
 }
-
+//petit aide, il faut appuyer sur la touche h
 function Keypressed(k) {
   if (k == Caractere_vers_Ascii('h') ||k == Caractere_vers_Ascii('H')) {
     alert("Pour gagner il suffit de couler les bateaux ennemis!!\nSi il vous est demandé plusieurs fois de placer unmême bateau\nalors placer le différemment!");   
   } 
 } 
 
-
+//bot qui s'occupe de jouer contre le joueur
 function botAleatoire(){  
   var xa=0,ya=0;
   var x,y;
@@ -62,7 +64,7 @@ function botAleatoire(){
             
         
 
-      
+// fonction qui permet de récupérer les rectangles en fonction du clique de la souris  
 function MouseClick(x, y){
   var xa=0,ya=0;
   for(i=1; i<10; i++){
@@ -100,12 +102,22 @@ function MouseClick(x, y){
         }
     }          
   }
+  // si le score du bot est égale a 14 il gagne
   if(scoreo >= 14){
     alert("Dommage! Vous avez perdu!!");
+    CreerInterface();
+	PlacerBateauIA();
+	PlacerBateauJ();
+	AfficherTableau(Tj);
     
   }
+  // si le score du joueur est égale a 14 il gagne
   else if(scorej >= 14){
    alert("Bravo,Vous avez gagné!!");
+   CreerInterface();
+   PlacerBateauIA();
+   PlacerBateauJ();
+   AfficherTableau(Tj);
   }
  
 }
@@ -157,7 +169,7 @@ for(i=1; i<10; i++){
 
 
 //placement des bateaux
-
+//Le placement des bateaux de l'IA se font de manière aléatoire et sont également orienté de façon aléatoire
 function PlacerBateauIA(){
   var x,y;
   for(i=0;i<5; i++){
@@ -227,7 +239,7 @@ function PlacerBateauIA(){
   }
 }
 
-
+//Le placement des bateaux du joueur se  fait via la saisie. 
 function PlacerBateauJ(){
 var x,y;
   for(i=0;i<5; i++){
