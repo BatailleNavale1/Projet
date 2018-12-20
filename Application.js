@@ -64,10 +64,29 @@ function MouseClick(x, y){
   var xa=0,ya=0;
   for(i=1; i<10; i++){
     for(j=1; j<10; j++){
-      xa = i-1;
-      ya = j-1;
+      xa = i;
+      ya = j; 
+      Ecrire("xa:"+xa);
+  		Ecrire("ya:"+ya); 
+  		Ecrire("x :"+x);
+ 		Ecrire("y :"+y);   
+       if(((x>750 && x<1450) && (y>50 && y<100)) || ((y>50 && y<500) && (x>750 && x<825))){
+          alert("ceci n'est pas une case");
+         return;
+          
+        }else{
+ 	       
       if(682+i*75<x && x<765+i*75 && j*50<y && y<j*50+50 && !Toucho[xa-1][ya-1]){
-        Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'black');
+        Ecrire("xa:"+xa);
+  		Ecrire("ya:"+ya); 
+  		Ecrire("x :"+x);
+ 		Ecrire("y :"+y);       
+          
+       
+          Texte(710+75*i,j*50+20, To[xa-1][ya-1], 'black');
+          
+        
+             
         
         if(To[xa-1][ya-1] == 1){
           Ecrire('Touché!!!');
@@ -79,7 +98,12 @@ function MouseClick(x, y){
         Toucho[xa-1][ya-1] = true;
         botAleatoire();
       }
+      }
     }
+      
+     
+     
+    
    
   }
   if(scoreo >= 14){
@@ -130,9 +154,6 @@ for(i=1; i<10; i++){
     Rectangle(i*75+680, j*50, 75, 50, 'black');
   }
 }
-
-
-
 
 
 
